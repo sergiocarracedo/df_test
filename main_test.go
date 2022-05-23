@@ -17,7 +17,8 @@ func BenchmarkSum(b *testing.B) {
 	idf := idataframe.NewDataframe()
 	gdf := gdataframe.NewDataframe[int]()
 
-	const size = 1024 * 1024 * 1024
+	const size = 1024 * 1024
+	fmt.Println("size -->", size/1024/1024, "MB")
 
 	rows := make([]Row, size)
 
@@ -30,7 +31,7 @@ func BenchmarkSum(b *testing.B) {
 		rows[i].cols[2] = i
 	}
 
-	fmt.Println("size -->", size)
+	fmt.Println("# Generation finished")
 	df.AddCol("mycol", s...)
 	idf.AddCol("mycol", si...)
 	gdf.AddCol("mycol", s...)

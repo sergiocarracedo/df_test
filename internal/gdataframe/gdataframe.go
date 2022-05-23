@@ -1,7 +1,5 @@
 package gdataframe
 
-import "fmt"
-
 type Number interface {
 	int64 | float64 | int
 }
@@ -22,7 +20,6 @@ func (df *Dataframe[T]) AddCol(name string, data ...T) {
 
 func (df *Dataframe[T]) SumCol(name string) T {
 	var sum T
-	fmt.Println("-------------------->", len(df.cols[name]))
 	for _, v := range df.cols[name] {
 		sum += v
 	}
